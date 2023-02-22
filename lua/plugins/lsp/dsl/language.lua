@@ -2,6 +2,7 @@ local function language(config)
   local servers = {}
   local formatters = {}
   local diagnostics = {}
+  local debuggers = {}
 
   for _, item in pairs(config) do
     -- Only validate and utilise tables, the rest are language level config opts
@@ -61,6 +62,17 @@ local function language(config)
         end
 
         table.insert(diagnostics, item)
+      elseif item.type == 'debugger' then
+        if item.configure_with == 'dap' then
+          vim.validate {
+            type = { item.type, 'string' },
+            configure_with = { item.configure_with, 'string' },
+            adapter = { item.adapter, 'table' },
+            config = { item.config, 'table' },
+          }
+        end
+
+        table.insert(debuggers, item)
       elseif item.type == 'disabled' then
         -- Ignore
         vim.validate {
@@ -76,6 +88,7 @@ local function language(config)
     servers = servers,
     formatters = formatters,
     diagnostics = diagnostics,
+    debuggers = debuggers,
     enabled = config.enabled or true,
   }
 end

@@ -1,4 +1,4 @@
-local language, server, formatter, diagnostics = unpack(require 'plugins.lsp.dsl')
+local language, server, formatter, diagnostics, dap = unpack(require 'plugins.lsp.dsl')
 
 return language {
   name = 'clang',
@@ -10,4 +10,6 @@ return language {
   formatter.disabled {},
 
   diagnostics.disabled {},
+
+  dap.disabled {},
 }

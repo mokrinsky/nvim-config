@@ -20,14 +20,11 @@ function M.config()
 
   require 'mason'
   require('plugins.lsp.diagnostics').setup()
-  require('lsp_signature').setup {
-    check_completion_visible = true,
-  }
+  require('lsp_signature').setup { check_completion_visible = true }
+  require('lspconfig.ui.windows').default_options = { border = 'rounded' }
 
   local lsp_config = require 'lspconfig'
-  require('lspconfig.ui.windows').default_options = {
-    border = 'rounded',
-  }
+  local dap = require 'dap'
   local capabilities, on_attach = unpack(require 'plugins.lsp.misc')
   local format_config = {}
   local languages = require 'plugins.lsp.languages.__collect'
@@ -53,6 +50,13 @@ function M.config()
 
         if server.post then
           server.post()
+        end
+      end
+
+      for _, debugger in pairs(module.debuggers) do
+        if debugger.configure_with == 'dap' then
+          dap.adapters[debugger.adapter.name] = debugger.adapter.body
+          dap.configurations[debugger.config.name] = debugger.config.body
         end
       end
 

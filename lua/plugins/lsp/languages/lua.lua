@@ -1,4 +1,4 @@
-local language, server, formatter, diagnostics = unpack(require 'plugins.lsp.dsl')
+local language, server, formatter, diagnostics, dap = unpack(require 'plugins.lsp.dsl')
 
 return language {
   name = 'lua',
@@ -31,6 +31,7 @@ return language {
           completion = {
             callSnippet = 'Replace',
             workspaceWord = true,
+            autoRequire = false,
           },
           misc = {
             parameters = {
@@ -71,4 +72,6 @@ return language {
       },
     },
   },
+
+  dap.disabled {},
 }

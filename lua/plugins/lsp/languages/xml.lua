@@ -1,4 +1,4 @@
-local language, server, formatter, diagnostics = unpack(require 'plugins.lsp.dsl')
+local language, server, formatter, diagnostics, dap = unpack(require 'plugins.lsp.dsl')
 
 return language {
   name = 'xml',
@@ -15,4 +15,6 @@ return language {
   },
 
   diagnostics.disabled {},
+
+  dap.disabled {},
 }

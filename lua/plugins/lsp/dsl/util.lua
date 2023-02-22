@@ -8,5 +8,6 @@ end
 
 function util.noop() end
 util.etable = {}
+util.ename = ''
 
 return util
