@@ -1,6 +1,42 @@
 local M = {
   'nvim-lualine/lualine.nvim',
   event = 'VeryLazy',
+  dependencies = {
+    {
+      'SmiteshP/nvim-navic',
+      opts = {
+        highlight = true,
+        icons = {
+          File = ' ',
+          Module = ' ',
+          Namespace = ' ',
+          Package = ' ',
+          Class = 'ﴯ ',
+          Method = ' ',
+          Property = ' ',
+          Field = ' ',
+          Constructor = ' ',
+          Enum = 'ℰ',
+          Interface = 'ﰮ ',
+          Function = ' ',
+          Variable = ' ',
+          Constant = ' ',
+          String = ' ',
+          Number = ' ',
+          Boolean = '⊨ ',
+          Array = ' ',
+          Object = ' ',
+          Key = ' ',
+          Null = 'NULL',
+          EnumMember = ' ',
+          Struct = 'פּ ',
+          Event = '',
+          Operator = ' ',
+          TypeParameter = ' ',
+        },
+      },
+    },
+  },
 }
 
 function M.config()

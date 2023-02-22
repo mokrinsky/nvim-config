@@ -3,9 +3,9 @@ return {
   { 'MunifTanjim/nui.nvim' },
   { 'nvim-lua/plenary.nvim' },
   { 'kyazdani42/nvim-web-devicons' },
+  { 'b0o/schemastore.nvim' },
+  { 'folke/neodev.nvim' }, -- this plugin won't be ever loaded, i just like to have completion bundled inside
 
-  -- completion and snippets
-  { 'folke/neodev.nvim' },
   { 'williamboman/mason-lspconfig.nvim' },
   { 'WhoIsSethDaniel/mason-tool-installer.nvim' },
   {
@@ -22,40 +22,6 @@ return {
       }
     end,
   },
-  {
-    'SmiteshP/nvim-navic',
-    opts = {
-      highlight = true,
-      icons = {
-        File = ' ',
-        Module = ' ',
-        Namespace = ' ',
-        Package = ' ',
-        Class = 'ﴯ ',
-        Method = ' ',
-        Property = ' ',
-        Field = ' ',
-        Constructor = ' ',
-        Enum = 'ℰ',
-        Interface = 'ﰮ ',
-        Function = ' ',
-        Variable = ' ',
-        Constant = ' ',
-        String = ' ',
-        Number = ' ',
-        Boolean = '⊨ ',
-        Array = ' ',
-        Object = ' ',
-        Key = ' ',
-        Null = 'NULL',
-        EnumMember = ' ',
-        Struct = 'פּ ',
-        Event = '',
-        Operator = ' ',
-        TypeParameter = ' ',
-      },
-    },
-  },
   -- treesitter
   {
     'danymat/neogen',
@@ -66,7 +32,7 @@ return {
   -- package manager
   { 'folke/lazy.nvim' },
   { 'mokrinsky/bufdelete.nvim', event = 'BufReadPre', dev = true },
-  { 'nacro90/numb.nvim' },
+  { 'nacro90/numb.nvim', event = 'BufReadPre' },
   {
     'ray-x/go.nvim',
     ft = 'go',
@@ -75,12 +41,8 @@ return {
     end,
     dependencies = { 'ray-x/guihua.lua' },
   },
-  -- use "gbprod/cutlass.nvim"
-  -- git changes
-  { 'airblade/vim-gitgutter' },
   -- ansible syntax
   { 'pearofducks/ansible-vim', ft = 'yaml.ansible' },
-  { 'junegunn/vim-easy-align' },
   {
     'numToStr/Comment.nvim',
     config = function()
