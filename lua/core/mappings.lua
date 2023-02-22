@@ -51,6 +51,10 @@ wk.register({
   ['fw'] = { '<cmd>Telescope<cr>', 'Telescope' },
   ['nt'] = { '<cmd>NvimTreeToggle<cr>', 'Toggle NvimTree' },
   ['so'] = { '<cmd>SymbolsOutline<cr>', 'Toggle Symbols Outline' },
+  ['dbp'] = { ":lua require'dap'.toggle_breakpoint()<cr>", 'Toggle breakpoint' },
+  ['dc'] = { ":lua require'dap'.continue()<cr>", 'Continue' },
+  ['dso'] = { ":lua require'dap'.step_over()<cr>", 'Step over' },
+  ['dsi'] = { ":lua require'dap'.step_into()<cr>", 'Step into' },
 }, { prefix = '<leader>' })
 
 wk.register({
