@@ -39,6 +39,22 @@ wk.register {
     end,
     'Open the file under the cursor',
   },
+  ['vr'] = {
+    function()
+      vim.ui.input({ prompt = 'Insert width of a split: ' }, function(res)
+        vim.cmd('vertical resize ' .. tostring(res))
+      end)
+    end,
+    'Vertical resize',
+  },
+  ['hr'] = {
+    function()
+      vim.ui.input({ prompt = 'Insert height of a split: ' }, function(res)
+        vim.cmd('resize ' .. tostring(res))
+      end)
+    end,
+    'Horizontal resize',
+  },
 }
 
 wk.register({

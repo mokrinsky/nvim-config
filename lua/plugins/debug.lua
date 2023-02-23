@@ -3,7 +3,7 @@ local M = {
   dependencies = {
     'rcarriga/nvim-dap-ui',
   },
-  cmd = 'DapContinue',
+  cmd = { 'DapContinue', 'DapUiToggle' },
 }
 
 function M.config()
