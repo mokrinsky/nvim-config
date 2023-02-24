@@ -39,7 +39,6 @@ function M.config()
         end
         return false
       end,
-      use_languagetree = true,
       additional_vim_regex_highlighting = { 'org' },
     },
     rainbow = {
