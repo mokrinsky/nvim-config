@@ -74,6 +74,7 @@ function M.config()
           NoiceMini = { bg = 'NONE' },
           -- For base configs.
           CursorLineNr = { fg = cp.green },
+          CursorLine = { bg = cp.surface0, style = { 'bold' } },
           Search = { bg = cp.surface1, fg = cp.pink, style = { 'bold' } },
           IncSearch = { bg = cp.pink, fg = cp.surface1 },
 
