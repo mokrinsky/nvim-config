@@ -1,6 +1,6 @@
 local M = {
   'andweeb/presence.nvim',
-  event = "BufReadPre"
+  event = 'BufReadPre',
 }
 
 function M.config()

@@ -1,0 +1,22 @@
+name: "Syntax check"
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+      - master
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: JohnnyMorganz/stylua-action@v2
+        with:
+          token: ${{ secrets.token }}
+          version: latest
+          args: --check .
+      - uses: NTBBloodbath/selene-action@v1.0.0
+        with:
+          token: ${{ secrets.token }}
+          args: --display-style=quiet .
+          version: 0.12.1
