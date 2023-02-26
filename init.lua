@@ -2,6 +2,7 @@ local util = require 'utils'
 
 util.require 'core.options'
 util.require 'core.lazy'
+util.require 'core.filetype'
 
 vim.api.nvim_create_autocmd('User', {
   pattern = 'VeryLazy',
