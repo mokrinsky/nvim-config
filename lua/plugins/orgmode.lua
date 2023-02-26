@@ -1,9 +1,9 @@
 local M = {
-  'nvim-orgmode/orgmode'
+  'nvim-orgmode/orgmode',
 }
 
 function M.config()
-  local orgmode = require("orgmode")
+  local orgmode = require 'orgmode'
   orgmode.setup_ts_grammar()
 
   orgmode.setup {
