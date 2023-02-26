@@ -35,7 +35,6 @@ o.undofile = true
 o.mouse = ''
 
 g.mapleader = ' '
-g.did_load_filetypes = 1
 g.markdown_recommended_style = 0
 g.indent_guides_auto_colors = 0
 g.indent_guides_start_level = 2
