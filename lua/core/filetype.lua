@@ -1,13 +1,11 @@
-require 'os'
-
 vim.filetype.add {
   filename = {
-    [os.getenv 'HOME' .. '/.kube/config'] = 'yaml',
     ['ssh_config'] = 'sshconfig',
   },
   pattern = {
     ['.*git/config'] = 'gitconfig',
-    [os.getenv 'HOME' .. '/.ssh/config.*'] = 'sshconfig',
+    ['${HOME}/.ssh/config.*'] = 'sshconfig',
+    ['.*/.kube/config'] = 'yaml',
   },
   extension = {
     service = function()
