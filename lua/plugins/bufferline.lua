@@ -8,7 +8,7 @@ function M.config()
 
   require('cokeline').setup {
     sidebar = {
-      filetype = 'NvimTree',
+      filetype = 'neo-tree',
       components = {
         {
           text = '  File Explorer',

@@ -65,7 +65,7 @@ wk.register({
 wk.register({
   t = { '<cmd>ToggleTerm<cr>', 'Open terminal' },
   ['fw'] = { '<cmd>Telescope<cr>', 'Telescope' },
-  ['nt'] = { '<cmd>NvimTreeToggle<cr>', 'Toggle NvimTree' },
+  ['nt'] = { '<cmd>Neotree<cr>', 'Toggle Neotree' },
   ['so'] = { '<cmd>SymbolsOutline<cr>', 'Toggle Symbols Outline' },
   ['dbp'] = { ":lua require'dap'.toggle_breakpoint()<cr>", 'Toggle breakpoint' },
   ['dc'] = { ":lua require'dap'.continue()<cr>", 'Continue' },
