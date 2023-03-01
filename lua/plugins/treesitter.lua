@@ -33,7 +33,7 @@ function M.config()
     ensure_installed = require('config').treesitter_ensure_installed,
     highlight = {
       enable = true,
-      disable = function(lang, buf)
+      disable = function()
         if vim.bo.filetype == 'yaml.ansible' then
           return true
         end

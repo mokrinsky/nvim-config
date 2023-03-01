@@ -264,12 +264,12 @@ function M.config()
       t = { 'TERMINAL', colors.red },
       v = { 'VISUAL', colors.blue },
       V = { 'V-LINE', colors.blue },
-      ['�'] = { 'V-BLOCK', colors.blue },
+      ['\22'] = { 'V-BLOCK', colors.blue },
       R = { 'REPLACE', colors.lavender },
       Rv = { 'V-REPLACE', colors.lavender },
       s = { 'SELECT', colors.peach },
       S = { 'S-LINE', colors.peach },
-      ['�'] = { 'S-BLOCK', colors.peach },
+      ['\19'] = { 'S-BLOCK', colors.peach },
       c = { 'COMMAND', colors.mauve },
       cv = { 'COMMAND', colors.red },
       ce = { 'COMMAND', colors.red },
@@ -281,6 +281,7 @@ function M.config()
     force_inactive = {
       filetypes = {
         '^NvimTree$',
+        '^neo-tree$',
         '^packer$',
         '^startify$',
         '^fugitive$',
