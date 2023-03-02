@@ -58,4 +58,4 @@ function M.config()
   require('neo-tree').setup(config)
 end
 
-return M
+return {M}

@@ -14,7 +14,7 @@ function M.config()
 
   local cmp = require 'cmp'
   local completion_opts = { border = 'rounded', winhighlight = 'Normal:Normal,FloatBorder:FloatBorder,CursorLine:Visual,Search:None' }
-  local config = require('config').lsp_config
+  local config = require('yumivim.config').lsp_config
 
   cmp.setup {
     completion = {

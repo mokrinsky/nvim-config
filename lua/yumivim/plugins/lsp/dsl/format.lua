@@ -1,9 +1,9 @@
-local util = require 'plugins.lsp.dsl.util'
+local util = require 'yumivim.plugins.lsp.dsl.util'
 
-local __diagnostics = {
+local __formatter = {
   null = function(tbl)
     return {
-      type = 'diagnostics',
+      type = 'formatter',
       configure_with = 'null-ls',
       source = tbl.config and tbl.runner.with(tbl.config) or tbl.runner,
     }
@@ -15,15 +15,15 @@ local __diagnostics = {
   end,
   lsp = function(tbl)
     return {
-      type = 'diagnostics',
+      type = 'formatter',
       configure_with = 'lsp',
       declared_config = tbl,
       overrides = tbl.config,
     }
   end,
-  runner = require('null-ls').builtins.diagnostics,
+  runner = require('null-ls').builtins.formatting,
 }
 
-local diagnostics = util.callable(__diagnostics, __diagnostics.null)
+local formatter = util.callable(__formatter, __formatter.null)
 
-return diagnostics
+return formatter

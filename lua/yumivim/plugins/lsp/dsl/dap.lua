@@ -1,4 +1,4 @@
-local util = require 'plugins.lsp.dsl.util'
+local util = require 'yumivim.plugins.lsp.dsl.util'
 
 local __debugger = {
   configured = function(tbl)

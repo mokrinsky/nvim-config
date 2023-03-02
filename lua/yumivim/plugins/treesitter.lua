@@ -3,7 +3,6 @@ local M = {
   build = ':TSUpdate',
   event = 'BufReadPost',
   dependencies = {
-    'p00f/nvim-ts-rainbow',
     'windwp/nvim-ts-autotag',
     'windwp/nvim-autopairs',
     'nvim-treesitter/playground',
@@ -30,7 +29,32 @@ function M.config()
         show_help = '?',
       },
     },
-    ensure_installed = require('config').treesitter_ensure_installed,
+    ensure_installed = {
+      'bash',
+      'cmake',
+      'cpp',
+      'dockerfile',
+      'fish',
+      'go',
+      'gomod',
+      'help',
+      'html',
+      'java',
+      'javascript',
+      'json',
+      'kotlin',
+      'lua',
+      'markdown',
+      'markdown_inline',
+      'nix',
+      'org',
+      'python',
+      'regex',
+      'sql',
+      'typescript',
+      'vim',
+      'yaml',
+    },
     highlight = {
       enable = true,
       disable = function()
@@ -40,11 +64,6 @@ function M.config()
         return false
       end,
       additional_vim_regex_highlighting = { 'org' },
-    },
-    rainbow = {
-      enable = true,
-      extended_mode = true,
-      max_file_lines = nil,
     },
     autotag = {
       enable = true,
