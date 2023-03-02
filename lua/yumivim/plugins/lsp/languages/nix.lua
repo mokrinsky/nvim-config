@@ -1,4 +1,4 @@
-local language, server, formatter, diagnostics, dap = unpack(require 'plugins.lsp.dsl')
+local language, server, formatter, diagnostics, dap = unpack(require 'yumivim.plugins.lsp.dsl')
 
 return language {
   name = 'nix',

@@ -1,4 +1,7 @@
+require('yumivim.config').init()
+
 return {
+  { 'mokrinsky/yumivim', priority = 10000, lazy = false, config = true, dev = true },
   -- I don't need autoloading these cause these will be loaded once required
   { 'MunifTanjim/nui.nvim' },
   { 'nvim-lua/plenary.nvim' },

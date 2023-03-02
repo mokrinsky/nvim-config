@@ -1,5 +1,5 @@
 local function f(lang)
-  return require(('plugins.lsp.languages.%s'):format(lang))
+  return require(('yumivim.plugins.lsp.languages.%s'):format(lang))
 end
 
 return {

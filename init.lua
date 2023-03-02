@@ -1,13 +1,10 @@
-local util = require 'utils'
+vim.api.nvim_echo({
+  {
+    'Do not use this repository directly\n',
+    'ErrorMsg',
+  },
+  { 'Press any key to exit', 'MoreMsg' },
+}, true, {})
 
-util.require 'core.options'
-util.require 'core.lazy'
-util.require 'core.filetype'
-
-vim.api.nvim_create_autocmd('User', {
-  pattern = 'VeryLazy',
-  callback = function()
-    util.require 'core.autocmds'
-    util.require 'core.mappings'
-  end,
-})
+vim.fn.getchar()
+vim.cmd [[quit]]
