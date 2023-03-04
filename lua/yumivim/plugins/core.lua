@@ -54,13 +54,14 @@ return {
   },
   {
     'norcalli/nvim-colorizer.lua',
-    event = 'BufReadPre',
+    event = 'BufReadPost',
     config = function()
       require('colorizer').setup()
     end,
   },
   {
     'folke/todo-comments.nvim',
+    event = 'BufReadPost',
     config = function()
       require('todo-comments').setup()
     end,
