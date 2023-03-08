@@ -10,6 +10,11 @@ function M.config()
     enable_diagnostics = true,
     sort_case_insensitive = true,
     use_default_mappings = false,
+    default_component_configs = {
+      indent = {
+        with_expanders = true,
+      },
+    },
     window = {
       mappings = {
         ['<cr>'] = 'open',
@@ -26,10 +31,12 @@ function M.config()
         ['q'] = 'close_window',
         ['R'] = 'refresh',
         ['?'] = 'show_help',
-        ['H'] = 'toggle_hidden',
       },
     },
     filesystem = {
+      mappings = {
+        ['H'] = 'toggle_hidden',
+      },
       filtered_items = {
         visible = false,
         hide_dotfiles = true,
