@@ -9,6 +9,7 @@ return {
   f 'lua',
   f 'nix',
   f 'python',
+  f 'sh',
   f 'xml',
   f 'yaml',
 }

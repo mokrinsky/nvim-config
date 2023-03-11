@@ -6,6 +6,7 @@ function M.config(input_sources)
 
   local extra_sources = {
     ns.builtins.code_actions.statix,
+    ns.builtins.code_actions.shellcheck,
     ns.builtins.diagnostics.statix,
     ns.builtins.diagnostics.codespell,
   }
