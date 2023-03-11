@@ -8,6 +8,11 @@ function M.config(input_sources)
     border = 'rounded',
     sources = {
       unpack(input_sources),
+      -- diagnositcs
+      ns.builtins.diagnostics.statix,
+      ns.builtins.diagnostics.codespell,
+      -- code_actions
+      ns.builtins.code_actions.statix,
     },
     on_attach = function(client, bufnr)
       if client.supports_method 'textDocument/formatting' then
