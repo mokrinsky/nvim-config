@@ -18,7 +18,6 @@ function M.config()
   --   },
   -- }
 
-  require 'mason'
   require('yumivim.plugins.lsp.diagnostics').setup()
   require('lsp_signature').setup { check_completion_visible = true }
   require('lspconfig.ui.windows').default_options = { border = 'rounded' }

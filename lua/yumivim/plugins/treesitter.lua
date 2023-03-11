@@ -6,6 +6,7 @@ local M = {
     'windwp/nvim-ts-autotag',
     'windwp/nvim-autopairs',
     'nvim-treesitter/playground',
+    'HiPhish/nvim-ts-rainbow2',
   },
 }
 
@@ -47,7 +48,6 @@ function M.config()
       'markdown',
       'markdown_inline',
       'nix',
-      'org',
       'python',
       'regex',
       'sql',
@@ -63,10 +63,14 @@ function M.config()
         end
         return false
       end,
-      additional_vim_regex_highlighting = { 'org' },
     },
     autotag = {
       enable = true,
+    },
+    rainbow = {
+      enable = true,
+      query = 'rainbow-parens',
+      strategy = require 'ts-rainbow.strategy.global',
     },
   }
 

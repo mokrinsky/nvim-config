@@ -9,8 +9,6 @@ return {
   { 'b0o/schemastore.nvim' },
   { 'folke/neodev.nvim' }, -- this plugin won't be ever loaded, i just like to have completion bundled inside
   { 'folke/which-key.nvim', lazy = false },
-  { 'williamboman/mason-lspconfig.nvim' },
-  { 'WhoIsSethDaniel/mason-tool-installer.nvim' },
   {
     'RRethy/vim-illuminate',
     event = { 'BufReadPost', 'BufNewFile' },

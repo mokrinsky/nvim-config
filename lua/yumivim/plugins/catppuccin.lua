@@ -53,10 +53,7 @@ function M.config()
       },
       gitsigns = true,
       telescope = true,
-      nvimtree = true,
       indent_blankline = { enabled = true, colored_indent_levels = true },
-      dashboard = true,
-      mason = true,
       cmp = true,
       dap = { enabled = true, enable_ui = true },
       symbols_outline = true,
@@ -72,9 +69,12 @@ function M.config()
         return {
           FocusedSymbol = { fg = cp.base, bg = cp.mauve },
           NoiceMini = { bg = 'NONE' },
+          IlluminatedWordText = { style = { 'underline' } },
+          IlluminatedWordRead = { style = { 'underline' } },
+          IlluminatedWordWrite = { style = { 'underline' } },
           -- For base configs.
           CursorLineNr = { fg = cp.green },
-          CursorLine = { bg = cp.surface0, style = { 'bold' } },
+          CursorLine = { bg = cp.surface0 },
           Search = { bg = cp.surface1, fg = cp.pink, style = { 'bold' } },
           IncSearch = { bg = cp.pink, fg = cp.surface1 },
 
@@ -221,7 +221,7 @@ function M.config()
     },
   }
 
-  vim.cmd.colorscheme 'catppuccin'
+  -- vim.cmd.colorscheme 'catppuccin'
 end
 
 return M

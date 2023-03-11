@@ -72,7 +72,6 @@ function M.config()
     },
     sources = {
       { name = 'nvim_lsp' },
-      -- { name = 'orgmode' },
       { name = 'luasnip' },
       { name = 'path' },
     },
