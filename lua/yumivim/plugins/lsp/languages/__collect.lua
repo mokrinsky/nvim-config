@@ -8,6 +8,7 @@ return {
   f 'go',
   f 'lua',
   f 'nix',
+  f 'python',
   f 'xml',
   f 'yaml',
 }
