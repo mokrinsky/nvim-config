@@ -4,15 +4,19 @@ function M.config(input_sources)
   local ns = require 'null-ls'
   local augroup = vim.api.nvim_create_augroup('LspFormatting', {})
 
+  local extra_sources = {
+    ns.builtins.code_actions.statix,
+    ns.builtins.diagnostics.statix,
+    ns.builtins.diagnostics.codespell
+  }
+  for _, tool in pairs(extra_sources) do
+    table.insert(input_sources, tool)
+  end
+
   ns.setup {
     border = 'rounded',
     sources = {
       unpack(input_sources),
-      -- diagnositcs
-      ns.builtins.diagnostics.statix,
-      ns.builtins.diagnostics.codespell,
-      -- code_actions
-      ns.builtins.code_actions.statix,
     },
     on_attach = function(client, bufnr)
       if client.supports_method 'textDocument/formatting' then
