@@ -10,4 +10,5 @@ return {
   f 'nix',
   f 'xml',
   f 'yaml',
+  f 'null',
 }

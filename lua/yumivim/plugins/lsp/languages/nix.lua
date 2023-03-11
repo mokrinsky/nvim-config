@@ -11,7 +11,9 @@ return language {
     runner = formatter.runner.alejandra,
   },
 
-  diagnostics.disabled {},
+  diagnostics.null {
+    runner = diagnostics.runner.deadnix,
+  },
 
   dap.disabled {},
 }
