@@ -1,7 +1,7 @@
 local M = {
   'neovim/nvim-lspconfig',
   name = 'lsp',
-  ft = { 'lua', 'xml', 'yml', 'yaml', 'go', 'yaml.ansible', 'nix' },
+  ft = { 'lua', 'xml', 'yml', 'yaml', 'go', 'yaml.ansible', 'nix', 'python' },
   dependencies = {
     'hrsh7th/cmp-nvim-lsp',
     'ray-x/lsp_signature.nvim',
