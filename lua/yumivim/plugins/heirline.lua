@@ -10,22 +10,15 @@ local M = {
 function M.config()
   local line = require 'heirline'
   local colors = require('catppuccin.palettes').get_palette()
+  local conditions = require 'heirline.conditions'
 
-  local conditions = {
-    buffer_not_empty = function()
-      return vim.fn.empty(vim.fn.expand '%:t') ~= 1
-    end,
-    hide_in_width = function()
-      return vim.fn.winwidth(0) > 80
-    end,
-    is_git_changed = function()
-      if require('heirline.conditions').is_git_repo then
-        local git = vim.b.gitsigns_status_dict
-        local has_changes = git.added ~= 0 or git.changed ~= 0 or git.removed ~= 0
-        return has_changes
-      end
-    end,
-  }
+  conditions.buffer_not_empty = function()
+    return vim.fn.empty(vim.fn.expand '%:t') ~= 1
+  end
+
+  conditions.hide_in_width = function()
+    return vim.fn.winwidth(0) > 80
+  end
 
   local components = {}
 
@@ -267,7 +260,7 @@ function M.config()
   }
 
   components.branch = {
-    condition = require('heirline.conditions').is_git_repo,
+    condition = conditions.is_git_repo,
     init = function(self)
       self.status_dict = vim.b.gitsigns_status_dict
     end,
@@ -284,12 +277,16 @@ function M.config()
     {
       provider = '',
       hl = { fg = colors.lavender, bg = colors.surface0 },
-      condition = conditions.is_git_changed,
+      condition = function(self)
+        return self.status_dict.added ~= 0 or self.status_dict.changed ~= 0 or self.status_dict.removed ~= 0
+      end,
     },
     {
       provider = '',
       hl = { fg = colors.lavender, bg = 'NONE' },
-      condition = conditions.is_git_changed == false,
+      condition = function(self)
+        return self.status_dict.added == 0 and self.status_dict.changed == 0 and self.status_dict.removed == 0
+      end,
     },
   }
 
@@ -300,7 +297,11 @@ function M.config()
     static = {
       icons = { added = ' ', modified = '柳 ', removed = ' ' },
     },
-    condition = conditions.hide_in_width and require('heirline.conditions').is_git_repo and conditions.is_git_changed,
+    condition = function(self)
+      if conditions.hide_in_width() and conditions.is_git_repo() then
+        return self.status_dict.added ~= 0 or self.status_dict.changed ~= 0 or self.status_dict.removed ~= 0
+      end
+    end,
     {
       provider = function(self)
         local count = self.status_dict.added or 0
