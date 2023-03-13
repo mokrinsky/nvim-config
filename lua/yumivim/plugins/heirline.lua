@@ -3,6 +3,7 @@ local M = {
   event = 'UiEnter',
   dependencies = {
     'SmiteshP/nvim-navic',
+    'lewis6991/gitsigns.nvim',
   },
 }
 
