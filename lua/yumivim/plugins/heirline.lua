@@ -31,7 +31,7 @@ function M.config()
 
   components.space = {
     provider = function()
-      return ' '
+      return '   '
     end,
     hl = { fg = 'NONE', bg = 'NONE' },
   }
@@ -138,7 +138,7 @@ function M.config()
   components.location = {
     {
       provider = function()
-        return '%l:%2c'
+        return ' %l:%c'
       end,
       hl = { bg = colors.surface0, fg = colors.mauve },
     },
@@ -150,24 +150,33 @@ function M.config()
   }
 
   components.ft = {
-    provider = function()
-      return vim.bo.filetype
-    end,
-    hl = function()
-      local buf_ft = vim.api.nvim_buf_get_option(0, 'filetype')
-      local clients = vim.lsp.get_active_clients()
-      if next(clients) == nil then
-        return { bg = colors.surface0, fg = colors.text }
-      end
-      for _, client in ipairs(clients) do
-        local filetypes = client.config.filetypes
-        if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
-          return { bg = colors.peach, fg = colors.surface0 }
+    {
+      provider = '',
+      hl = { fg = colors.peach },
+    },
+    {
+      provider = function()
+        return vim.bo.filetype
+      end,
+      hl = function()
+        local buf_ft = vim.api.nvim_buf_get_option(0, 'filetype')
+        local clients = vim.lsp.get_active_clients()
+        if next(clients) == nil then
+          return { bg = colors.surface0, fg = colors.text }
         end
-      end
-      return { bg = colors.surface0, fg = colors.text }
-    end,
-    separator = { left = '', right = '' },
+        for _, client in ipairs(clients) do
+          local filetypes = client.config.filetypes
+          if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
+            return { bg = colors.peach, fg = colors.surface0 }
+          end
+        end
+        return { bg = colors.surface0, fg = colors.text }
+      end,
+    },
+    {
+      provider = '',
+      hl = { fg = colors.peach, bg = colors.surface0 },
+    },
   }
 
   components.diag = {
@@ -203,7 +212,11 @@ function M.config()
       end,
       hl = { fg = colors.cyan },
     },
-    hl = { bg = colors.surface0, fg = colors.surface0 },
+    {
+      provider = '',
+      hl = { fg = colors.surface0, bg = 'NONE' },
+    },
+    hl = { bg = colors.surface0 },
   }
 
   components.navic = {
