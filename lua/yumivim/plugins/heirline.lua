@@ -118,7 +118,7 @@ function M.config()
     },
     {
       provider = function(self)
-        return self.mode_map(self.mode)
+        return self.mode_map[self.mode]
       end,
       hl = function(self)
         return { fg = '#313244', bg = self.mode_color[self.mode] }
