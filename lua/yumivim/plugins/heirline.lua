@@ -18,6 +18,10 @@ function M.config()
     hide_in_width = function()
       return vim.fn.winwidth(0) > 80
     end,
+    is_git_changed = function()
+      local git = vim.b.gitsigns_status_dict
+      return (git.added + git.changed + git.removed) > 0
+    end,
   }
 
   local components = {}
@@ -264,10 +268,26 @@ function M.config()
     init = function(self)
       self.status_dict = vim.b.gitsigns_status_dict
     end,
-    provider = function(self)
-      return '' .. self.status_dict.head
-    end,
-    hl = { bg = colors.lavender, fg = '#313244' },
+    {
+      provider = '',
+      hl = { fg = colors.lavender },
+    },
+    {
+      provider = function(self)
+        return ' ' .. self.status_dict.head
+      end,
+      hl = { bg = colors.lavender, fg = '#313244' },
+    },
+    {
+      provider = '',
+      hl = { fg = colors.lavender, bg = colors.surface0 },
+      condition = conditions.is_git_changed,
+    },
+    {
+      provider = '',
+      hl = { fg = colors.lavender, bg = 'NONE' },
+      condition = not conditions.is_git_changed,
+    },
   }
 
   components.git_diff = {
@@ -277,7 +297,7 @@ function M.config()
     static = {
       icons = { added = ' ', modified = '柳 ', removed = ' ' },
     },
-    condition = conditions.hide_in_width and require('heirline.conditions').is_git_repo,
+    condition = conditions.hide_in_width and require('heirline.conditions').is_git_repo and conditions.is_git_changed,
     {
       provider = function(self)
         local count = self.status_dict.added or 0
@@ -299,7 +319,11 @@ function M.config()
       end,
       hl = { fg = colors.red },
     },
-    hl = { bg = '#313244', fg = '#313244' },
+    {
+      provider = '',
+      hl = { fg = '#313244', bg = 'NONE' },
+    },
+    hl = { bg = '#313244' },
   }
 
   components.rightpad = {
