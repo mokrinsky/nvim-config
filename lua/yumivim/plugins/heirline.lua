@@ -281,12 +281,12 @@ function M.config()
     {
       provider = '',
       hl = { fg = colors.lavender, bg = colors.surface0 },
-      condition = conditions.is_git_changed > 0,
+      condition = conditions.is_git_changed() > 0,
     },
     {
       provider = '',
       hl = { fg = colors.lavender, bg = 'NONE' },
-      condition = conditions.is_git_changed == 0,
+      condition = conditions.is_git_changed() == 0,
     },
   }
 
@@ -297,7 +297,7 @@ function M.config()
     static = {
       icons = { added = ' ', modified = '柳 ', removed = ' ' },
     },
-    condition = conditions.hide_in_width and require('heirline.conditions').is_git_repo and conditions.is_git_changed > 0,
+    condition = conditions.hide_in_width and require('heirline.conditions').is_git_repo and conditions.is_git_changed() > 0,
     {
       provider = function(self)
         local count = self.status_dict.added or 0
