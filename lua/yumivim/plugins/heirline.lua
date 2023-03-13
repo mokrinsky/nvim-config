@@ -20,7 +20,7 @@ function M.config()
     end,
     is_git_changed = function()
       local git = vim.b.gitsigns_status_dict
-      return vim.b.gitsigns_status_dict and git.added and git.changed and git.removed and (git.added + git.changed + git.removed or 0)
+      return vim.b.gitsigns_status_dict and git.added and git.changed and git.removed and (git.added + git.changed + git.removed) or 0
     end,
   }
 
