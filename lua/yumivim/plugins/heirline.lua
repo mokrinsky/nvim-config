@@ -71,23 +71,81 @@ function M.config()
         ['r?'] = colors.cyan,
         ['!'] = colors.red,
       },
+      mode_map = {
+        ['n'] = 'NORMAL',
+        ['no'] = 'O-PENDING',
+        ['nov'] = 'O-PENDING',
+        ['noV'] = 'O-PENDING',
+        ['no\22'] = 'O-PENDING',
+        ['niI'] = 'NORMAL',
+        ['niR'] = 'NORMAL',
+        ['niV'] = 'NORMAL',
+        ['nt'] = 'NORMAL',
+        ['ntT'] = 'NORMAL',
+        ['v'] = 'VISUAL',
+        ['vs'] = 'VISUAL',
+        ['V'] = 'V-LINE',
+        ['Vs'] = 'V-LINE',
+        ['\22'] = 'V-BLOCK',
+        ['\22s'] = 'V-BLOCK',
+        ['s'] = 'SELECT',
+        ['S'] = 'S-LINE',
+        ['\19'] = 'S-BLOCK',
+        ['i'] = 'INSERT',
+        ['ic'] = 'INSERT',
+        ['ix'] = 'INSERT',
+        ['R'] = 'REPLACE',
+        ['Rc'] = 'REPLACE',
+        ['Rx'] = 'REPLACE',
+        ['Rv'] = 'V-REPLACE',
+        ['Rvc'] = 'V-REPLACE',
+        ['Rvx'] = 'V-REPLACE',
+        ['c'] = 'COMMAND',
+        ['cv'] = 'EX',
+        ['ce'] = 'EX',
+        ['r'] = 'REPLACE',
+        ['rm'] = 'MORE',
+        ['r?'] = 'CONFIRM',
+        ['!'] = 'SHELL',
+        ['t'] = 'TERMINAL',
+      },
     },
-    provider = function(self)
-      return self.mode
-    end,
-    hl = function(self)
-      return { fg = '#313244', bg = self.mode_color[self.mode] }
-    end,
+    {
+      provider = '',
+      hl = function(self)
+        return { fg = self.mode_color[self.mode] }
+      end,
+    },
+    {
+      provider = function(self)
+        return self.mode_map(self.mode)
+      end,
+      hl = function(self)
+        return { fg = '#313244', bg = self.mode_color[self.mode] }
+      end,
+    },
+    {
+      provider = '',
+      hl = function(self)
+        return { fg = self.mode_color[self.mode], bg = colors.surface0 }
+      end,
+    },
     update = {
       'ModeChanged',
     },
   }
 
   components.location = {
-    provider = function()
-      return '%l:%2c'
-    end,
-    hl = { bg = colors.surface0, fg = colors.mauve },
+    {
+      provider = function()
+        return '%l:%2c'
+      end,
+      hl = { bg = colors.surface0, fg = colors.mauve },
+    },
+    {
+      provider = '',
+      hl = { fg = colors.surface0 },
+    },
     condition = conditions.buffer_not_empty,
   }
 
