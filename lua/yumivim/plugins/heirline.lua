@@ -19,9 +19,11 @@ function M.config()
       return vim.fn.winwidth(0) > 80
     end,
     is_git_changed = function()
-      local git = vim.b.gitsigns_status_dict
-      local has_changes = git.added ~= 0 or git.changed ~= 0 or git.removed ~= 0
-      return has_changes
+      if require('heirline.conditions').is_git_repo then
+        local git = vim.b.gitsigns_status_dict
+        local has_changes = git.added ~= 0 or git.changed ~= 0 or git.removed ~= 0
+        return has_changes
+      end
     end,
   }
 
