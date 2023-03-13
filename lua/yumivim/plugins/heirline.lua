@@ -20,7 +20,7 @@ function M.config()
     end,
     is_git_changed = function()
       local git = vim.b.gitsigns_status_dict
-      return vim.b.gitsigns_status_dict and git.added and git.changed and git.removed and (git.added + git.changed + git.removed) > 0
+      return vim.b.gitsigns_status_dict and git.added and git.changed and git.removed and (git.added + git.changed + git.removed)
     end,
   }
 
@@ -281,12 +281,12 @@ function M.config()
     {
       provider = '',
       hl = { fg = colors.lavender, bg = colors.surface0 },
-      condition = conditions.is_git_changed,
+      condition = conditions.is_git_changed > 0,
     },
     {
       provider = '',
       hl = { fg = colors.lavender, bg = 'NONE' },
-      condition = conditions.is_git_changed == false,
+      condition = conditions.is_git_changed == 0,
     },
   }
 
@@ -297,7 +297,7 @@ function M.config()
     static = {
       icons = { added = ' ', modified = '柳 ', removed = ' ' },
     },
-    condition = conditions.hide_in_width and require('heirline.conditions').is_git_repo and conditions.is_git_changed,
+    condition = conditions.hide_in_width and require('heirline.conditions').is_git_repo and conditions.is_git_changed > 0,
     {
       provider = function(self)
         local count = self.status_dict.added or 0
