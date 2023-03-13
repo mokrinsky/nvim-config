@@ -286,7 +286,7 @@ function M.config()
     {
       provider = '',
       hl = { fg = colors.lavender, bg = 'NONE' },
-      condition = not conditions.is_git_changed,
+      condition = conditions.is_git_changed == false,
     },
   }
 
