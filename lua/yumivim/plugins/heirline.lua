@@ -176,6 +176,7 @@ function M.config()
   }
 
   components.branch = {
+    condition = require('heirline.conditions').is_git_repo,
     init = function(self)
       self.status_dict = vim.b.gitsigns_status_dict
     end,
@@ -192,7 +193,7 @@ function M.config()
     static = {
       icons = { added = ' ', modified = '柳 ', removed = ' ' },
     },
-    condition = conditions.hide_in_width,
+    condition = conditions.hide_in_width and require('heirline.conditions').is_git_repo,
     {
       provider = function(self)
         local count = self.status_dict.added or 0
