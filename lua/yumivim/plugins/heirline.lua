@@ -174,12 +174,25 @@ function M.config()
       end,
     },
     {
-      provider = '',
+      provider = ' ',
       hl = { fg = colors.peach, bg = colors.surface0 },
+      condition = function()
+        return #vim.diagnostic.get() > 0
+      end,
+    },
+    {
+      provider = '',
+      hl = { fg = colors.peach, bg = 'NONE' },
+      condition = function()
+        return #vim.diagnostic.get() == 0
+      end,
     },
   }
 
   components.diag = {
+    condition = function()
+      return #vim.diagnostic.get() > 0
+    end,
     static = {
       icons = {
         error = ' ',
