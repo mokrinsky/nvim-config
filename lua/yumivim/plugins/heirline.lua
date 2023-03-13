@@ -298,7 +298,7 @@ function M.config()
       icons = { added = ' ', modified = '柳 ', removed = ' ' },
     },
     condition = function(self)
-      if conditions.hide_in_width() and conditions.is_git_repo() then
+      if conditions.is_git_repo() then
         return self.status_dict.added ~= 0 or self.status_dict.changed ~= 0 or self.status_dict.removed ~= 0
       end
     end,
