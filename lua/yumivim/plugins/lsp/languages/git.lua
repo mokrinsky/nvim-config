@@ -11,6 +11,7 @@ return language {
     runner = diagnostics.runner.commitlint,
     config = {
       extra_args = {},
+      args = {},
     },
   },
 
