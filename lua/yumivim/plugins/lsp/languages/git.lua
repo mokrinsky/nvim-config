@@ -8,11 +8,7 @@ return language {
   formatter.disabled {},
 
   diagnostics.null {
-    runner = diagnostics.runner.commitlint,
-    config = {
-      extra_args = {},
-      args = {},
-    },
+    runner = diagnostics.runner.gitlint,
   },
 
   dap.disabled {},
