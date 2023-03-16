@@ -9,6 +9,9 @@ return language {
 
   diagnostics.null {
     runner = diagnostics.runner.commitlint,
+    config = {
+      extra_args = {},
+    },
   },
 
   dap.disabled {},
