@@ -5,6 +5,7 @@ end
 return {
   f 'ansible',
   f 'clang',
+  f 'git',
   f 'go',
   f 'lua',
   f 'nix',
