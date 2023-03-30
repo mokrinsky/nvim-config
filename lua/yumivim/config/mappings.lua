@@ -21,8 +21,8 @@ function BetterGX(uri)
 end
 
 wk.register {
-  s = { ':w<cr>', 'Save current file' },
-  q = { ':Bdelete<cr>', 'Close current buffer' },
+  s = { '<cmd>w<cr>', 'Save current file' },
+  q = { '<cmd>Bdelete<cr>', 'Close current buffer' },
   ['<Tab>'] = { '<Plug>(cokeline-focus-next)', 'Next buffer' },
   ['<S-Tab>'] = { '<Plug>(cokeline-focus-prev)', 'Previous buffer' },
   ['<C-/>'] = { "<cmd>lua require('Comment.api').toggle.linewise.current()<CR>", 'Comment current line' },
@@ -67,10 +67,10 @@ wk.register({
   ['fw'] = { '<cmd>Telescope<cr>', 'Telescope' },
   ['nt'] = { '<cmd>Neotree<cr>', 'Toggle Neotree' },
   ['so'] = { '<cmd>SymbolsOutline<cr>', 'Toggle Symbols Outline' },
-  ['dbp'] = { ":lua require'dap'.toggle_breakpoint()<cr>", 'Toggle breakpoint' },
-  ['dc'] = { ":lua require'dap'.continue()<cr>", 'Continue' },
-  ['dso'] = { ":lua require'dap'.step_over()<cr>", 'Step over' },
-  ['dsi'] = { ":lua require'dap'.step_into()<cr>", 'Step into' },
+  ['dbp'] = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", 'Toggle breakpoint' },
+  ['dc'] = { "<cmd>lua require'dap'.continue()<cr>", 'Continue' },
+  ['dso'] = { "<cmd>lua require'dap'.step_over()<cr>", 'Step over' },
+  ['dsi'] = { "<cmd>lua require'dap'.step_into()<cr>", 'Step into' },
 }, { prefix = '<leader>' })
 
 wk.register({
