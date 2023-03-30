@@ -64,4 +64,11 @@ return {
       require('todo-comments').setup()
     end,
   },
+  {
+    'folke/trouble.nvim',
+    command = 'Trouble',
+    config = function()
+      require('trouble').setup {}
+    end,
+  },
 }
