@@ -5,6 +5,7 @@ local M = {
 
 function M.config()
   local config = {
+    log_level = 'info',
     popup_border_style = 'rounded',
     enable_git_status = true,
     enable_diagnostics = true,
