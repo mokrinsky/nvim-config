@@ -8,7 +8,13 @@ return language {
   formatter.disabled {},
 
   diagnostics.null {
-    runner = diagnostics.runner.gitlint,
+    runner = diagnostics.runner.commitlint,
+    config = {
+      args = {
+        '-g',
+        '~/.config/linters/commitlint.config.js',
+      },
+    },
   },
 
   dap.disabled {},
