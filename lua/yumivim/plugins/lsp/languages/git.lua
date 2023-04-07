@@ -11,7 +11,8 @@ return language {
     runner = diagnostics.runner.commitlint,
     config = {
       args = {
-        '--config=$HOME/.config/linters/commitlint.config.js',
+        '-g',
+        vim.fn.expand '~/.config/linters/commitlint.config.js',
       },
     },
   },
