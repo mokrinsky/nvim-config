@@ -11,8 +11,7 @@ return language {
     runner = diagnostics.runner.commitlint,
     config = {
       args = {
-        '-g',
-        '~/.config/linters/commitlint.config.js',
+        '--config=$HOME/.config/linters/commitlint.config.js',
       },
     },
   },

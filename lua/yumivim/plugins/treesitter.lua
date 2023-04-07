@@ -38,7 +38,6 @@ function M.config()
       'fish',
       'go',
       'gomod',
-      'help',
       'html',
       'java',
       'javascript',
