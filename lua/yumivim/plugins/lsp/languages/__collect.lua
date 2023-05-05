@@ -11,6 +11,7 @@ return {
   f 'nix',
   f 'python',
   f 'sh',
+  f 'ts',
   f 'xml',
   f 'yaml',
 }
