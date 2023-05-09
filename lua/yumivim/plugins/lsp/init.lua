@@ -1,6 +1,7 @@
 local M = {
   'neovim/nvim-lspconfig',
   name = 'lsp',
+  event = 'BufReadPost',
   dependencies = {
     'hrsh7th/cmp-nvim-lsp',
     'ray-x/lsp_signature.nvim',
