@@ -1,5 +1,6 @@
 local M = {
-  'feline-nvim/feline.nvim',
+  'freddiehaddad/feline.nvim',
+  event = 'VeryLazy',
 }
 
 function M.config()
