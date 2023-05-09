@@ -44,5 +44,9 @@ vim.filetype.add {
       vim.opt_local.softtabstop = 4
       return 'xml'
     end,
+    javascript = function()
+      vim.opt_local.shiftwidth = 2
+      return 'javascript'
+    end,
   },
 }
