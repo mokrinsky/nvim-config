@@ -4,7 +4,7 @@ return language {
   name = 'nix',
 
   server.configured {
-    name = 'rnix',
+    name = 'nil_ls',
   },
 
   formatter.null {
