@@ -45,6 +45,10 @@ local on_attach = function(client, bufnr)
     [']d'] = { '<cmd>lua vim.diagnostic.goto_next()<CR>', '' },
     ['<space>q'] = { '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', '' },
   }
+
+  -- I like treesitter colors for now i think
+  client.server_capabilities.semanticTokensProvider = nil
+
   if client.server_capabilities.documentSymbolProvider then
     require('nvim-navic').attach(client, bufnr)
   end

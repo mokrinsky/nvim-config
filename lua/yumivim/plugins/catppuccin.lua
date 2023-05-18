@@ -58,7 +58,7 @@ function M.config()
       neotree = true,
       noice = true,
       notify = true,
-      semantic_tokens = true,
+      semantic_tokens = false,
       symbols_outline = true,
       telescope = true,
       treesitter = true,
@@ -131,17 +131,6 @@ function M.config()
           CmpItemKindInterface = { fg = '#D8EEEB', bg = '#58B5A8' },
           CmpItemKindColor = { fg = '#D8EEEB', bg = '#58B5A8' },
           CmpItemKindTypeParameter = { fg = '#D8EEEB', bg = '#58B5A8' },
-
-          -- For lsp semantic tokens
-          ['@lsp.type.comment'] = { fg = cp.overlay0 },
-          ['@lsp.type.enum'] = { link = '@type' },
-          ['@lsp.type.property'] = { link = '@property' },
-          ['@lsp.type.macro'] = { link = '@constant' },
-          ['@lsp.typemod.function.defaultLibrary'] = { fg = cp.blue, style = { 'bold', 'italic' } },
-          ['@lsp.typemod.function.defaultLibrary.c'] = { fg = cp.blue, style = { 'bold' } },
-          ['@lsp.typemod.function.defaultLibrary.cpp'] = { fg = cp.blue, style = { 'bold' } },
-          ['@lsp.typemod.method.defaultLibrary'] = { link = '@lsp.typemod.function.defaultLibrary' },
-          ['@lsp.typemod.variable.defaultLibrary'] = { fg = cp.flamingo },
 
           -- For treesitter.
           ['@field'] = { fg = cp.rosewater },
