@@ -19,6 +19,8 @@ capabilities.textDocument.completion.completionItem = {
   },
 }
 
+capabilities.offsetEncoding = 'utf-16'
+
 local on_attach = function(client, bufnr)
   local wk = require 'which-key'
   local function buf_set_option(...)
