@@ -12,7 +12,7 @@ return language {
   },
 
   diagnostics.null {
-    runner = diagnostics.runner.deadnix,
+    runner = diagnostics.runner.statix,
   },
 
   dap.disabled {},
