@@ -1,6 +1,42 @@
 local M = {
   'freddiehaddad/feline.nvim',
   event = 'VeryLazy',
+  dependencies = {
+    {
+      'SmiteshP/nvim-navic',
+      opts = {
+        highlight = true,
+        icons = {
+          Array = '󰅪 ',
+          Boolean = '⊨ ',
+          Class = '󰠱 ',
+          Constant = ' ',
+          Constructor = ' ',
+          Enum = ' ',
+          EnumMember = ' ',
+          Event = ' ',
+          Field = '󰆨 ',
+          File = ' ',
+          Function = '󰊕 ',
+          Interface = '󰜰 ',
+          Key = '󰌋 ',
+          Method = ' ',
+          Module = '󰆧 ',
+          Namespace = '󰅪 ',
+          Null = 'NULL',
+          Number = '󰎠 ',
+          Object = '󰅩 ',
+          Operator = '󰆕 ',
+          Package = '󰏗 ',
+          Property = ' ',
+          String = '󰀬 ',
+          Struct = '󰙅 ',
+          TypeParameter = ' ',
+          Variable = '󰀫 ',
+        },
+      },
+    },
+  },
 }
 
 function M.config()
@@ -214,7 +250,7 @@ function M.config()
   component.git_diff_changed = {
     provider = 'git_diff_changed',
     right_sep = ' ',
-    icon = '柳 ',
+    icon = ' ',
     hl = function()
       return {
         fg = colors.peach,
