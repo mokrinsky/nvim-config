@@ -17,6 +17,9 @@ return language {
         schemaStore = {
           enabled = true,
         },
+        yaml = {
+          keyOrdering = false,
+        },
       },
     },
   },
