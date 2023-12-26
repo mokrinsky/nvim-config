@@ -5,7 +5,7 @@ local M = {
   dependencies = {
     'hrsh7th/cmp-nvim-lsp',
     'ray-x/lsp_signature.nvim',
-    'jose-elias-alvarez/null-ls.nvim',
+    'nvimtools/none-ls.nvim',
   },
 }
 
