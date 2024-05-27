@@ -3,6 +3,7 @@ require('yumivim.config').init()
 return {
   { 'mokrinsky/nvim-config', priority = 10000, lazy = false, config = true },
   -- I don't need autoloading these cause these will be loaded once required
+  { 'nvim-neotest/nvim-nio' },
   { 'MunifTanjim/nui.nvim' },
   { 'nvim-lua/plenary.nvim' },
   { 'kyazdani42/nvim-web-devicons' },
