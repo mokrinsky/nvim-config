@@ -3,13 +3,13 @@ local language, server, formatter, diagnostics, dap = unpack(require 'yumivim.pl
 return language {
   name = 'shell',
 
-  server.disabled {},
+  server.configured {
+    name = 'bashls',
+  },
 
   formatter.disabled {},
 
-  diagnostics.null {
-    runner = diagnostics.runner.shellcheck,
-  },
+  diagnostics.disabled {},
 
   dap.disabled {},
 }
